@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table,
+        th,
+        td {
+            border: 1px solid black;
+            padding: 10px;
+            border-collapse: collapse;
+            font-size: 15px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1 id="myh1"></h1>
+    <button onclick="getjoke()">click me</button>
+
+    <script>
+        function getjoke() {
+            fetch('https://jsonplaceholder.typicode.com/users')
+                .then((result) => result.json())
+                .then((data) => {
+                    user = data;
+                    console.log(user);
+                    str = "<table><tr><th>id</th><th>name</th><th>username</th><th>email</th></tr>";
+                    for (let i of user) {
+                        str += `<tr><td>${i.id}</td><td>${i.name}</td><td>${i.username}</td><td>${i.email}</td></tr>`;
+                    }
+                    str += "</table>";
+                    document.getElementById("myh1").innerHTML = str;
+                })
+        }
+    </script>
+
+</body>
+
+</html>
