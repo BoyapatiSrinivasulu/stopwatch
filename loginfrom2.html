@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.8/css/bootstrap.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.8/js/bootstrap.bundle.min.js" integrity="sha512-HvOjJrdwNpDbkGJIG2ZNqDlVqMo77qbs4Me4cah0HoDrfhrbA+8SBlZn1KrvAQw7cILLPFJvdwIgphzQmMm+Pw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        <div class="row d-flex justify-content-center h-100 align-item-center">
+            <div class="col-md-4 shadow-lg ">
+                <h2 class="text-center">Login</h2>
+                <hr>
+                    <div class="form-group p-3">
+                        <label for="username" class="form-label">UserName:</label>
+                        <input type="text" required pattern="[a-z A-Z]{3,}" id="uname" class="form-control" placeholder="Enter userName....">
+                    </div>
+                    <div class="form-group p-3">
+                        <label for=""  class="form-label">Password:</label>
+                        <input type="password" class="form-control" id="pwd" placeholder="Enter password....">
+                    </div>
+                    <div class="form-group text-center p-3">
+                        <button onclick="subm()" class="btn btn-lg ms-4 bg-success text-white">SUBMIT</button><button type="reset" class="btn btn-lg ms-4 bg-danger text-white">RESET</button>
+                    </div>
+                <h4 class="d-block">RESULT:</h4>
+                <h4 id="result"></h4>
+            </div>
+        </div>
+    </div>
+    <script>
+        function subm()
+        {
+            var un=document.getElementById("uname").value;
+            var pw=document.getElementById("pwd").value;
+            var i;
+            if(un.slice(0,3)==pw.slice(0,3)&&pw.slice(-4)=="@123")
+            {
+                i=" Login Successful";
+            }
+            else{
+                i=" Login Failed";
+            }
+            document.getElementById("result").innerHTML=i;
+        }
+    </script>
+</body>
+</html>
